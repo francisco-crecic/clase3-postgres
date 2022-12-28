@@ -1,0 +1,43 @@
+# rest-client: extension de vscode
+
+@server=http://localhost:3000
+
+
+### listar recursos
+GET {{server}}/v1/pacientes
+
+### creacion de un recurso
+POST {{server}}/v1/pacientes
+Content-Type: application/json
+
+{
+    "nombre": "Cristiano Ronaldo",
+    "apellidos": "Triviño Illanes",
+    "edad": 34
+}
+
+### informacion de un recurso
+GET {{server}}/v1/pacientes/3
+
+### test error al crear recurso
+POST {{server}}/v1/pacientes
+Content-Type: application/json
+
+{
+    "nombre": "Juan Pedro",
+    "apellidos": "Quiroz Retamal",
+    "edad": -2
+}
+
+
+### eliminacion de recurso
+DELETE {{server}}/v1/pacientes/3
+
+
+### modificacion de un recurso
+PUT {{server}}/v1/pacientes/2
+Content-Type: application/json
+
+{
+    "nombre": "Sebastian (modificado)"
+}
