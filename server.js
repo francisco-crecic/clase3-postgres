@@ -4,14 +4,14 @@ const app = express()
 app.use(express.json())
 
 app.get('/ping', (req, res) => {
-    res.send('Servidor corriendo...')
+  res.send('Servidor corriendo...')
 })
 
 app.use(require('./routes/routes'))
 
-
-const PORT=3000
+const PORT = 3000
 
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`)
+  // eslint-disable-next-line no-console
+  console.log(`Servidor corriendo en http://localhost:${PORT}`)
 })
