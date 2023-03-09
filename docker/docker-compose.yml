@@ -1,0 +1,32 @@
+version: "3"
+name: JPH
+
+services:
+  
+  db:
+    image: postgres:14-alpine
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ../sql-create-db:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: ejercicio_db
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+  app:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    environment:
+      PG_HOST: db
+      PG_PORT: 5432
+      PG_USER: postgres
+      PG_PASS: password
+      PG_NAME: ejercicio_db
+
+volumes:
+  db:

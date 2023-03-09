@@ -1,0 +1,17 @@
+.dockerignore
+.git
+.gitignore
+.eslintrc.json
+.env
+node_modules
+package-lock.json
+
+# carpeta de archivos docker
+docker
+
+# carpeta de creacion de tablas
+sql-create-db
+
+# carpeta de pruebas
+testing
+postman

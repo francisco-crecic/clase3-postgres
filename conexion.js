@@ -1,12 +1,13 @@
-const { Pool } = require('pg')
+const {
+  PG_HOST: host,
+  PG_PORT: port,
+  PG_USER: user,
+  PG_PASS: password,
+  PG_NAME: database
+} = process.env;
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  database: 'pacientes',
-  password: '#postgres.crecic#'
-})
+const { Pool } = require('pg')
+const pool = new Pool({ user, host, port, database, password })
 
 /**
  * @ref: https://app.supabase.com/
